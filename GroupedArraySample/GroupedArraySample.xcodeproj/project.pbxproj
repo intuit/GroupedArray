@@ -34,13 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B14F259B1A06FDF00067C976 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1A683251A019A2700C73235 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B1A6832C1A019A2700C73235;
-			remoteInfo = GroupedArraySample;
-		};
 		B14F25CA1A06FED90067C976 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1A683251A019A2700C73235 /* Project object */;
@@ -291,7 +284,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B14F259C1A06FDF00067C976 /* PBXTargetDependency */,
 				B14F25CB1A06FED90067C976 /* PBXTargetDependency */,
 			);
 			name = "GroupedArrayTests-Mac";
@@ -484,11 +476,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B14F259C1A06FDF00067C976 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B1A6832C1A019A2700C73235 /* GroupedArraySample-iOS */;
-			targetProxy = B14F259B1A06FDF00067C976 /* PBXContainerItemProxy */;
-		};
 		B14F25CB1A06FED90067C976 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B14F25A91A06FEC60067C976 /* GroupedArraySample-Mac */;
