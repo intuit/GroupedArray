@@ -20,20 +20,6 @@
                ReferencedContainer = "container:GroupedArraySample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B14F25BB1A06FEC60067C976"
-               BuildableName = "GroupedArraySample-MacTests.xctest"
-               BlueprintName = "GroupedArraySample-MacTests"
-               ReferencedContainer = "container:GroupedArraySample.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

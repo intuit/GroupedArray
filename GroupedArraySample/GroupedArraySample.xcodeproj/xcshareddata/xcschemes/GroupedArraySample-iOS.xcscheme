@@ -22,29 +22,15 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B1A683451A019A2700C73235"
                BuildableName = "GroupedArrayTests-iOS.xctest"
                BlueprintName = "GroupedArrayTests-iOS"
-               ReferencedContainer = "container:GroupedArraySample.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B14F25941A06FDF00067C976"
-               BuildableName = "GroupedArrayTests-Mac.xctest"
-               BlueprintName = "GroupedArrayTests-Mac"
                ReferencedContainer = "container:GroupedArraySample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
