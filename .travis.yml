@@ -6,3 +6,7 @@ matrix:
       xcode_scheme: GroupedArraySample-iOS
     - xcode_sdk: macosx
       xcode_scheme: GroupedArraySample-Mac
+before_install: 
+  - brew update
+  - brew unlink xctool
+  - brew install xctool
