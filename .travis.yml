@@ -1,0 +1,8 @@
+language: objective-c
+xcode_project: GroupedArraySample/GroupedArraySample.xcodeproj
+matrix:
+  include:
+    - xcode_sdk: iphonesimulator
+      xcode_scheme: GroupedArraySample-iOS
+    - xcode_sdk: macosx
+      xcode_scheme: GroupedArraySample-Mac
