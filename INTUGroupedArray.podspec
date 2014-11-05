@@ -5,7 +5,9 @@ Pod::Spec.new do |s|
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
   s.author                = { "Tyler Fox" => "tyler_fox@intuit.com" }
   s.source                = { :git => "https://github.com/intuit/GroupedArray.git", :tag => "v1.0.0" }
-  s.source_files          = 'Source/INTUGroupedArray'
+  s.source_files          = 'Source/INTUGroupedArray/**/*.{h,m}'
+  s.public_header_files   = 'Source/INTUGroupedArray/*.h'
+  s.private_header_files  = 'Source/INTUGroupedArray/Internal/*.h'
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
   s.requires_arc          = true
