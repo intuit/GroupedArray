@@ -1,5 +1,5 @@
 # [![INTUGroupedArray](https://github.com/intuit/GroupedArray/blob/master/Images/INTUGroupedArray.png?raw=true)](#)
-[![Build Status](http://img.shields.io/travis/intuit/GroupedArray.svg?style=flat)](https://travis-ci.org/intuit/INTUGroupedArray) [![Version](http://img.shields.io/cocoapods/v/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![Platform](http://img.shields.io/cocoapods/p/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![License](http://img.shields.io/cocoapods/l/INTUGroupedArray.svg?style=flat)](LICENSE)
+[![Build Status](http://img.shields.io/travis/intuit/GroupedArray.svg?style=flat)](https://travis-ci.org/intuit/GroupedArray) [![Version](http://img.shields.io/cocoapods/v/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![Platform](http://img.shields.io/cocoapods/p/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![License](http://img.shields.io/cocoapods/l/INTUGroupedArray.svg?style=flat)](LICENSE)
 
 An Objective-C and Swift collection for iOS and OS X that stores objects grouped into sections.
 
@@ -46,8 +46,8 @@ Some of the grouped array APIs are similar to those of a dictionary (e.g. retrie
 
 Like the Foundation collections, there are two variants of the grouped array:
 
-*  `INTUGroupedArray`: An immutable grouped array. Thread safe.
-*  `INTUMutableGroupedArray`: A mutable subclass. Not thread safe.
+*  `INTUGroupedArray`: An immutable grouped array. Thread safe. (Swift type: `GroupedArray`)
+*  `INTUMutableGroupedArray`: A mutable subclass. Not thread safe. (Swift type: `MutableGroupedArray`)
 
 As a best practice, you should favor the static immutable grouped array over the dynamic mutable variant.
 
