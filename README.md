@@ -1,4 +1,6 @@
 # [![INTUGroupedArray](https://github.com/intuit/GroupedArray/blob/master/Images/INTUGroupedArray.png?raw=true)](#)
+[![Build Status](http://img.shields.io/travis/intuit/GroupedArray.svg?style=flat)](https://travis-ci.org/intuit/INTUGroupedArray) [![Version](http://img.shields.io/cocoapods/v/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![Platform](http://img.shields.io/cocoapods/p/INTUGroupedArray.svg?style=flat)](http://cocoapods.org/?q=INTUGroupedArray) [![License](http://img.shields.io/cocoapods/l/INTUGroupedArray.svg?style=flat)](LICENSE)
+
 An Objective-C and Swift collection for iOS and OS X that stores objects grouped into sections.
 
 INTUGroupedArray is an Objective-C data structure that takes the common one-dimensional array to the next dimension. The grouped array is designed with a familiar API to fit right in alongside Foundation collections like NSArray, with fully-featured immutable and mutable variants. A thin bridge brings the grouped array to Swift as native classes, where it harnesses the power, safety, and flexibility of generics, optionals, subscripts, literals, tuples, and much more.
