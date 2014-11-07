@@ -27,7 +27,7 @@
 import Foundation
 
 
-public func ==<S: AnyObject, O: AnyObject>(lhs: GroupedArray<S, O>, rhs: GroupedArray<S, O>) -> Bool
+public func ==<S1, O1, S2, O2>(lhs: GroupedArray<S1, O1>, rhs: GroupedArray<S2, O2>) -> Bool
 {
     return lhs.intuGroupedArray.isEqualToGroupedArray(rhs.intuGroupedArray)
 }
