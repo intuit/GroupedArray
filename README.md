@@ -18,20 +18,20 @@ INTUGroupedArray is extremely versatile, and can replace complicated nested arra
     	pod 'INTUGroupedArray'
 
 2.	Run `pod install` from Terminal, then open your app's `.xcworkspace` file to launch Xcode.
-3.	Import the umbrella header `#import "INTUGroupedArrayImports.h"` so that all the grouped array classes are available to use.
+3.	Import the umbrella header `INTUGroupedArrayImports.h` so that all the grouped array classes are available to use. Typically, this should be written as `#import <INTUGroupedArray/INTUGroupedArrayImports.h>`
 
 #### Manually from GitHub
 
 1.	Download the Objective-C source files in the [Source/INTUGroupedArray directory](Source/INTUGroupedArray).
 2.	Add all the files to your Xcode project (drag and drop is easiest).
-3.	Import the umbrella header `#import "INTUGroupedArrayImports.h"` so that all the grouped array classes are available to use.
+3.	Import the umbrella header `INTUGroupedArrayImports.h` so that all the grouped array classes are available to use.
 
 ### Swift
 
 1.  To use the grouped array in Swift, you first need to obtain the Objective-C source code and integrate it into your project (see above).
-2.	Download the Swift source file in the [Source/Swift directory](Source/Swift) and add it to your project.
+2.	Download the `GroupedArray.swift` Swift source file in the [Source/Swift directory](Source/Swift) and add it to your project.
 3.  If you haven't already, you will need to set up an [Objective-C Bridging Header](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) for your project.
-4.	Add the umbrella header `#import "INTUGroupedArrayImports.h"` to your Bridging Header file. (The Swift grouped array classes depend on this so they can access the Objective-C source.)
+4.	Add the umbrella header `INTUGroupedArrayImports.h` to your Bridging Header file. (The Swift grouped array classes depend on this so they can access the Objective-C source.)
 
 At this point, the native Swift classes `GroupedArray` and `MutableGroupedArray` will be available to use in your project's Swift code.
 
