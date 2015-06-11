@@ -35,7 +35,7 @@ public func ==<S1, O1, S2, O2>(lhs: GroupedArray<S1, O1>, rhs: GroupedArray<S2, 
 
 // MARK: GroupedArray
 
-public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, Printable, DebugPrintable, ArrayLiteralConvertible
+public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, CustomStringConvertible, CustomDebugStringConvertible, ArrayLiteralConvertible
 {
     private var intuGroupedArray: INTUGroupedArray
     
@@ -244,12 +244,12 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     }
     
     
-    public func generate() -> GeneratorOf<(section: S, object: O)>
+    public func generate() -> AnyGenerator<(section: S, object: O)>
     {
         let groupedArray = self
         var sectionIndex = 0
         var objectIndex = 0
-        return Swift.GeneratorOf {
+        return anyGenerator {
             let sectionCount = groupedArray.countAllSections()
             if sectionIndex < sectionCount {
                 let section = groupedArray.sectionAtIndex(sectionIndex)
@@ -303,14 +303,14 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     }
     
     
-    public func filtered(#sectionPredicate: NSPredicate, objectPredicate: NSPredicate) -> GroupedArray<S, O>
+    public func filtered(sectionPredicate sectionPredicate: NSPredicate, objectPredicate: NSPredicate) -> GroupedArray<S, O>
     {
         let newGroupedArray: GroupedArray<S, O> = GroupedArray()
         newGroupedArray.intuGroupedArray = intuGroupedArray.filteredGroupedArrayUsingSectionPredicate(sectionPredicate, objectPredicate: objectPredicate)
         return newGroupedArray
     }
     
-    public func sorted(#sectionComparator: NSComparator, objectComparator: NSComparator) -> GroupedArray<S, O>
+    public func sorted(sectionComparator sectionComparator: NSComparator, objectComparator: NSComparator) -> GroupedArray<S, O>
     {
         let newGroupedArray: GroupedArray<S, O> = GroupedArray()
         newGroupedArray.intuGroupedArray = intuGroupedArray.sortedGroupedArrayUsingSectionComparator(sectionComparator, objectComparator: objectComparator)
@@ -488,12 +488,12 @@ public class MutableGroupedArray<S: AnyObject, O: AnyObject>: GroupedArray<S, O>
     }
     
     
-    public func filter(#sectionPredicate: NSPredicate, objectPredicate: NSPredicate)
+    public func filter(sectionPredicate sectionPredicate: NSPredicate, objectPredicate: NSPredicate)
     {
         intuMutableGroupedArray.filterUsingSectionPredicate(sectionPredicate, objectPredicate: objectPredicate)
     }
     
-    public func sort(#sectionComparator: NSComparator, objectComparator: NSComparator)
+    public func sort(sectionComparator sectionComparator: NSComparator, objectComparator: NSComparator)
     {
         intuMutableGroupedArray.sortUsingSectionComparator(sectionComparator, objectComparator: objectComparator)
     }

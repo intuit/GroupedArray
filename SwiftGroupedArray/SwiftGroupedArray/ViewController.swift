@@ -47,32 +47,32 @@ class ViewController: UIViewController
         
         // Access a section and object
         let section0 = groupedArray.sectionAtIndex(0)
-        println("The first section is: \(section0)")
+        print("The first section is: \(section0)")
         let object00 = groupedArray.objectAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
-        println("The first object is: \(object00)")
+        print("The first object is: \(object00)")
         
         // Use some APIs that return optionals
         if let sectionIndex = groupedArray.indexOfSection("Section 4") {
-            println("Found the section at index: \(sectionIndex)")
+            print("Found the section at index: \(sectionIndex)")
         }
         if let lastObject = groupedArray.lastObject() {
-            println("The last object is: \(lastObject)")
+            print("The last object is: \(lastObject)")
         }
         
         
         // Iterate over the grouped array
         for (section, object) in groupedArray {
-            println("Enumerating with tuple (section: \(section), object: \(object))")
+            print("Enumerating with tuple (section: \(section), object: \(object))")
         }
         
         // Iterate over just the sections
         for section in groupedArray.sectionEnumerator() {
-            println("Enumerating section: \(section)")
+            print("Enumerating section: \(section)")
         }
         
         // Iterate over the objects in reverse
         for object in groupedArray.reverseObjectEnumerator() {
-            println("Enumerating reversed object: \(object)")
+            print("Enumerating reversed object: \(object)")
         }
         
         
@@ -88,37 +88,37 @@ class ViewController: UIViewController
         
         
         // Test equality using the == operator
-        println("Are the two grouped arrays equal: \(groupedArray == mutableGroupedArray)")
+        print("Are the two grouped arrays equal: \(groupedArray == mutableGroupedArray)")
         
         
         // Use subscripts to access a section by index
         let section = mutableGroupedArray[0]
-        println("The first section is: \(section)")
+        print("The first section is: \(section)")
         // Use subscripts to access an object passing in a section index and object index
         let object = mutableGroupedArray[0, 1]
-        println("The second object in the first section is: \(object)")
+        print("The second object in the first section is: \(object)")
         // Use subscripts to access an object by index path
         let indexPath = NSIndexPath(forRow: 2, inSection: 0)
         let anotherObject = mutableGroupedArray[indexPath]
-        println("The third object in the first section is: \(anotherObject)")
+        print("The third object in the first section is: \(anotherObject)")
         
         // Replace a section with a new section using subscripts
         mutableGroupedArray[1] = "New Section 2"
-        println("The second section is now: \(mutableGroupedArray[1])")
+        print("The second section is now: \(mutableGroupedArray[1])")
         // Replace some objects with new objects using subscripts
         mutableGroupedArray[1, 0] = "New Object D"
-        println("The object in the second section is now: \(mutableGroupedArray[1, 0])")
+        print("The object in the second section is now: \(mutableGroupedArray[1, 0])")
         mutableGroupedArray[indexPath] = "New Object C"
-        println("The last object in the first section is now: \(mutableGroupedArray[indexPath])")
+        print("The last object in the first section is now: \(mutableGroupedArray[indexPath])")
     }
     
     func moreGroupedArrayDemos()
     {
         // When using the array literal syntax, if the type is not explicitly annotated, it will default to a Swift Array
         let a = [5, ["Some text"], 10, ["Some more text"]]
-        println(a)
+        print(a)
         // Same literal, but with the GroupedArray type (and generics) made explicit
-        var b: GroupedArray<NSNumber, NSString> = [5, ["Some text"], 10, ["Some more text"]]
-        println(b)
+        let b: GroupedArray<NSNumber, NSString> = [5, ["Some text"], 10, ["Some more text"]]
+        print(b)
     }
 }

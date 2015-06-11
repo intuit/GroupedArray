@@ -212,6 +212,7 @@
 		B1A6837F1A02DB8300C73235 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Intuit;
 				TargetAttributes = {
