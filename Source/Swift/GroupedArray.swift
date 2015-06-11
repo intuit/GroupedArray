@@ -68,14 +68,14 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     public func copy() -> GroupedArray<S, O>
     {
         let newGroupedArray = GroupedArray<S, O>()
-        newGroupedArray.intuGroupedArray = intuGroupedArray.copy() as INTUGroupedArray
+        newGroupedArray.intuGroupedArray = intuGroupedArray.copy() as! INTUGroupedArray
         return newGroupedArray
     }
     
     public func mutableCopy() -> MutableGroupedArray<S, O>
     {
         let newGroupedArray = MutableGroupedArray<S, O>()
-        newGroupedArray.intuGroupedArray = intuGroupedArray.mutableCopy() as INTUMutableGroupedArray
+        newGroupedArray.intuGroupedArray = intuGroupedArray.mutableCopy() as! INTUMutableGroupedArray
         return newGroupedArray
     }
     
@@ -114,7 +114,7 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     
     public func allSections() -> [S]
     {
-        return intuGroupedArray.allSections() as [S]
+        return intuGroupedArray.allSections() as! [S]
     }
     
     public func containsSection(section: S) -> Bool
@@ -182,12 +182,12 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     
     public func objectsInSection(section: S) -> [O]
     {
-        return intuGroupedArray.objectsInSection(section) as [O]
+        return intuGroupedArray.objectsInSection(section) as! [O]
     }
     
     public func objectsInSectionAtIndex(sectionIndex: Int) -> [O]
     {
-        return intuGroupedArray.objectsInSectionAtIndex(UInt(sectionIndex)) as [O]
+        return intuGroupedArray.objectsInSectionAtIndex(UInt(sectionIndex)) as! [O]
     }
     
     public func countAllObjects() -> Int
@@ -197,49 +197,49 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     
     public func allObjects() -> [O]
     {
-        return intuGroupedArray.allObjects() as [O]
+        return intuGroupedArray.allObjects() as! [O]
     }
     
     
     public func enumerateSections(block: (section: S, index: Int, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateSectionsUsingBlock { (section: AnyObject!, index: UInt, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(section: section as S, index: Int(index), stop: stop)
+            block(section: section as! S, index: Int(index), stop: stop)
         }
     }
     
     public func enumerateSections(options: NSEnumerationOptions, block: (section: S, index: Int, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateSectionsWithOptions(options) { (section: AnyObject!, index: UInt, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(section: section as S, index: Int(index), stop: stop)
+            block(section: section as! S, index: Int(index), stop: stop)
         }
     }
     
     public func enumerateObjects(block: (object: O, indexPath: NSIndexPath, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateObjectsUsingBlock { (object: AnyObject!, indexPath: NSIndexPath!, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(object: object as O, indexPath: indexPath, stop: stop)
+            block(object: object as! O, indexPath: indexPath, stop: stop)
         }
     }
     
     public func enumerateObjects(options: NSEnumerationOptions, block: (object: O, indexPath: NSIndexPath, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateObjectsWithOptions(options) { (object: AnyObject!, indexPath: NSIndexPath!, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(object: object as O, indexPath: indexPath, stop: stop)
+            block(object: object as! O, indexPath: indexPath, stop: stop)
         }
     }
     
     public func enumerateObjectsInSectionAtIndex(sectionIndex: Int, block: (object: O, indexPath: NSIndexPath, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateObjectsInSectionAtIndex(UInt(sectionIndex)) { (object: AnyObject!, indexPath: NSIndexPath!, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(object: object as O, indexPath: indexPath, stop: stop)
+            block(object: object as! O, indexPath: indexPath, stop: stop)
         }
     }
     
     public func enumerateObjectsInSectionAtIndex(sectionIndex: Int, withOptions options: NSEnumerationOptions, block: (object: O, indexPath: NSIndexPath, stop: UnsafeMutablePointer<ObjCBool>) -> Void)
     {
         intuGroupedArray.enumerateObjectsInSectionAtIndex(UInt(sectionIndex), withOptions: options) { (object: AnyObject!, indexPath: NSIndexPath!, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            block(object: object as O, indexPath: indexPath, stop: stop)
+            block(object: object as! O, indexPath: indexPath, stop: stop)
         }
     }
     
@@ -290,7 +290,7 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     public func indexOfSectionPassingTest(predicate: (section: S, index: Int, stop: UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int?
     {
         let index = Int(intuGroupedArray.indexOfSectionPassingTest { (section: AnyObject!, index: UInt, stop: UnsafeMutablePointer<ObjCBool>) -> Bool in
-            return predicate(section: section as S, index: Int(index), stop: stop)
+            return predicate(section: section as! S, index: Int(index), stop: stop)
         })
         return (index == NSNotFound) ? nil : index
     }
@@ -298,7 +298,7 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
     public func indexPathOfObjectPassingTest(predicate: (object: O, indexPath: NSIndexPath, stop: UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexPath?
     {
         return intuGroupedArray.indexPathOfObjectPassingTest { (object: AnyObject!, indexPath: NSIndexPath!, stop: UnsafeMutablePointer<ObjCBool>) -> Bool in
-            return predicate(object: object as O, indexPath: indexPath, stop: stop)
+            return predicate(object: object as! O, indexPath: indexPath, stop: stop)
         }
     }
     
@@ -325,7 +325,7 @@ public class MutableGroupedArray<S: AnyObject, O: AnyObject>: GroupedArray<S, O>
 {
     private var intuMutableGroupedArray: INTUMutableGroupedArray
     {
-        return intuGroupedArray as INTUMutableGroupedArray
+        return intuGroupedArray as! INTUMutableGroupedArray
     }
     
     override public init()
@@ -502,11 +502,11 @@ public class MutableGroupedArray<S: AnyObject, O: AnyObject>: GroupedArray<S, O>
 
 // MARK: Enumerators
 
-public class GroupedArraySectionEnumerator<S: AnyObject>: SequenceType, GeneratorType, NSFastEnumeration
+public class GroupedArraySectionEnumerator<S: AnyObject>: SequenceType, GeneratorType
 {
-    private var enumerator: AnyObject // Must be a subclass of NSEnumerator; must also conform to INTUGroupedArraySectionEnumerator protocol
+    private var enumerator: NSEnumerator // Must also conform to INTUGroupedArraySectionEnumerator protocol
     
-    public init(_ enumerator: AnyObject)
+    public init(_ enumerator: NSEnumerator)
     {
         self.enumerator = enumerator
     }
@@ -523,25 +523,22 @@ public class GroupedArraySectionEnumerator<S: AnyObject>: SequenceType, Generato
     
     public func nextSection() -> S?
     {
-        return enumerator.nextSection() as? S
+        let typedEnumerator = enumerator as! INTUGroupedArraySectionEnumerator
+        return typedEnumerator.nextSection() as? S
     }
     
     public func allSections() -> [S]
     {
-        return enumerator.allSections() as [S]
-    }
-    
-    public func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
-    {
-        return enumerator.countByEnumeratingWithState(state, objects: buffer, count: len)
+        let typedEnumerator = enumerator as! INTUGroupedArraySectionEnumerator
+        return typedEnumerator.allSections() as! [S]
     }
 }
 
-public class GroupedArrayObjectEnumerator<O: AnyObject>: SequenceType, GeneratorType, NSFastEnumeration
+public class GroupedArrayObjectEnumerator<O: AnyObject>: SequenceType, GeneratorType
 {
-    private var enumerator: AnyObject // Must be a subclass of NSEnumerator
+    private var enumerator: NSEnumerator
     
-    public init(_ enumerator: AnyObject)
+    public init(_ enumerator: NSEnumerator)
     {
         self.enumerator = enumerator
     }
@@ -563,11 +560,6 @@ public class GroupedArrayObjectEnumerator<O: AnyObject>: SequenceType, Generator
     
     public func allObjects() -> [O]
     {
-        return enumerator.allObjects as [O]
-    }
-    
-    public func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
-    {
-        return enumerator.countByEnumeratingWithState(state, objects: buffer, count: len)
+        return enumerator.allObjects as! [O]
     }
 }
