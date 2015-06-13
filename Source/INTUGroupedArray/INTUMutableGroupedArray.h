@@ -2,7 +2,7 @@
 //  INTUMutableGroupedArray.h
 //  https://github.com/intuit/GroupedArray
 //
-//  Copyright (c) 2014 Intuit Inc.
+//  Copyright (c) 2014-2015 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -26,6 +26,9 @@
 
 #import "INTUGroupedArray.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 /**
  A mutable subclass of INTUGroupedArray.
  
@@ -33,32 +36,32 @@
  
  Calling -[copy] will return an immutable instance of INTUGroupedArray.
  */
-@interface INTUMutableGroupedArray : INTUGroupedArray
+@interface INTUMutableGroupedArray<SectionType, ObjectType> : INTUGroupedArray
 
 #pragma mark Adding
 
 /** Adds an object to the section. If the section does not exist, it will be created. */
-- (void)addObject:(id)object toSection:(id)section;
+- (void)addObject:(ObjectType)object toSection:(SectionType)section;
 /** Adds an object to the section, using the section index hint to attempt to quickly locate the section. If the section does not exist, it will be created. */
-- (void)addObject:(id)object toSection:(id)section withSectionIndexHint:(NSUInteger)sectionIndexHint;
+- (void)addObject:(ObjectType)object toSection:(SectionType)section withSectionIndexHint:(NSUInteger)sectionIndexHint;
 /** Adds an object to an existing section at the index. */
-- (void)addObject:(id)object toSectionAtIndex:(NSUInteger)index;
+- (void)addObject:(ObjectType)object toSectionAtIndex:(NSUInteger)index;
 /** Adds the objects in the array to the section. If the section does not exist, it will be created. */
-- (void)addObjectsFromArray:(NSArray *)array toSection:(id)section;
+- (void)addObjectsFromArray:(nullable NSArray *)array toSection:(SectionType)section;
 
 #pragma mark Inserting
 
 /** Inserts the object at the index in the section. If the section does not exist, it will be created. */
-- (void)insertObject:(id)object atIndex:(NSUInteger)index inSection:(id)section;
+- (void)insertObject:(ObjectType)object atIndex:(NSUInteger)index inSection:(SectionType)section;
 /** Inserts the object at the index path. The index path must correspond to an existing section. */
-- (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
+- (void)insertObject:(ObjectType)object atIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark Replacing
 
 /** Replaces the section at the index with another section. */
-- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(id)section;
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(SectionType)section;
 /** Replaces the object at the index path with another object. */
-- (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
+- (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(ObjectType)object;
 
 #pragma mark Moving
 
@@ -79,26 +82,28 @@
 /** Removes all objects and sections. */
 - (void)removeAllObjects;
 /** Removes the section and all objects in it. */
-- (void)removeSection:(id)section;
+- (void)removeSection:(SectionType)section;
 /** Removes the section at the index and all objects in it. */
 - (void)removeSectionAtIndex:(NSUInteger)index;
 /** Removes all occurrences of the object across all sections. Empty sections will be removed. */
-- (void)removeObject:(id)object;
+- (void)removeObject:(ObjectType)object;
 /** Removes all occurrences of the object from the section. Empty sections will be removed. */
-- (void)removeObject:(id)object fromSection:(id)section;
+- (void)removeObject:(ObjectType)object fromSection:(SectionType)section;
 /** Removes the object at the index from the section. Empty sections will be removed. */
-- (void)removeObjectAtIndex:(NSUInteger)index fromSection:(id)section;
+- (void)removeObjectAtIndex:(NSUInteger)index fromSection:(SectionType)section;
 /** Removes the object at the index path. Empty sections will be removed. */
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark Filtering
 
 /** Evaluates the section & object predicates against all sections & objects and removes those that do not match. Empty sections will be removed. */
-- (void)filterUsingSectionPredicate:(NSPredicate *)sectionPredicate objectPredicate:(NSPredicate *)objectPredicate;
+- (void)filterUsingSectionPredicate:(nullable NSPredicate *)sectionPredicate objectPredicate:(nullable NSPredicate *)objectPredicate;
 
 #pragma mark Sorting
 
 /** Sorts the sections using the section comparator, and the objects in each section using the object comparator. */
-- (void)sortUsingSectionComparator:(NSComparator)sectionCmptr objectComparator:(NSComparator)objectCmptr;
+- (void)sortUsingSectionComparator:(nullable NSComparator)sectionCmptr objectComparator:(nullable NSComparator)objectCmptr;
 
 @end
+
+NS_ASSUME_NONNULL_END
