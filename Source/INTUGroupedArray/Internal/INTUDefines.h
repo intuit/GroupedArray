@@ -1,8 +1,8 @@
 //
-//  INTUMutableGroupedArrayInternal.h
+//  INTUDefines.h
 //  https://github.com/intuit/GroupedArray
 //
-//  Copyright (c) 2014-2015 Intuit Inc.
+//  Copyright (c) 2015 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -24,26 +24,25 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#ifndef INTUMutableGroupedArrayInternal_h
-#define INTUMutableGroupedArrayInternal_h
+#ifndef INTUDefines_h
+#define INTUDefines_h
 
-#import "INTUMutableGroupedArray.h"
+#if __has_feature(nullability)
+#   define __INTU_ASSUME_NONNULL_BEGIN      NS_ASSUME_NONNULL_BEGIN
+#   define __INTU_ASSUME_NONNULL_END        NS_ASSUME_NONNULL_END
+#   define __INTU_NULLABLE                  nullable
+#else
+#   define __INTU_ASSUME_NONNULL_BEGIN
+#   define __INTU_ASSUME_NONNULL_END
+#   define __INTU_NULLABLE
+#endif
 
-__INTU_ASSUME_NONNULL_BEGIN
+#if __has_feature(objc_generics)
+#   define __INTU_GENERICS(type, ...)       type<__VA_ARGS__>
+#   define __INTU_GENERICS_TYPE(type)       type
+#else
+#   define __INTU_GENERICS(type, ...)       type
+#   define __INTU_GENERICS_TYPE(type)       id
+#endif
 
-/**
- A category on INTUMutableGroupedArray that exposes some private internal properties and methods for
- subclasses to access.
- */
-@interface __INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) (Internal)
-
-// A mutable array of INTUMutableGroupedArraySectionContainer objects.
-@property (nonatomic) __INTU_GENERICS(NSMutableArray, __INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) *) *mutableSectionContainers;
-
-- (__INTU_GENERICS(NSMutableArray, ObjectType) *)_objectsArrayForSection:(__INTU_GENERICS_TYPE(SectionType))section withSectionIndexHint:(NSUInteger)sectionIndexHint;
-
-@end
-
-__INTU_ASSUME_NONNULL_END
-
-#endif /* INTUMutableGroupedArrayInternal_h */
+#endif /* INTUDefines_h */

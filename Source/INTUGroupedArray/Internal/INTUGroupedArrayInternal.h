@@ -30,16 +30,16 @@
 #import "INTUGroupedArray.h"
 #import "INTUIndexPair.h"
 
-NS_ASSUME_NONNULL_BEGIN
+__INTU_ASSUME_NONNULL_BEGIN
 
 /**
  A category on INTUGroupedArray that exposes some private internal properties and methods for
  subclasses to access.
  */
-@interface INTUGroupedArray<SectionType, ObjectType> (Internal)
+@interface __INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) (Internal)
 
 // An array of INTUGroupedArraySectionContainer objects.
-@property (nonatomic, strong) NSArray<INTUGroupedArraySectionContainer<SectionType, ObjectType> *> *sectionContainers;
+@property (nonatomic, strong) __INTU_GENERICS(NSArray, __INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) *) *sectionContainers;
 
 /**
  Returns the memory address of the _mutations instance variable.
@@ -56,10 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPair The index pair of the object.
  @return The object at the index pair, or nil if the index pair is out of bounds.
  */
-- (ObjectType)_objectAtIndexPair:(INTUIndexPair)indexPair;
+- (__INTU_GENERICS_TYPE(ObjectType))_objectAtIndexPair:(INTUIndexPair)indexPair;
 
 @end
 
-NS_ASSUME_NONNULL_END
+__INTU_ASSUME_NONNULL_END
 
 #endif /* INTUGroupedArrayInternal_h */

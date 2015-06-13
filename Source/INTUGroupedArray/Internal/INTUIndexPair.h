@@ -28,6 +28,9 @@
 #define INTUIndexPair_h
 
 #import <Foundation/Foundation.h>
+#import "INTUDefines.h"
+
+__INTU_ASSUME_NONNULL_BEGIN
 
 
 struct INTUIndexPair {
@@ -55,5 +58,7 @@ static inline INTUIndexPair INTUIndexPairConvert(NSIndexPath *indexPath)
 {
     INTUIndexPair indexPair; indexPair.sectionIndex = [indexPath indexAtPosition:0]; indexPair.objectIndex = [indexPath indexAtPosition:1]; return indexPair;
 }
+
+__INTU_ASSUME_NONNULL_END
 
 #endif /* INTUIndexPair_h */

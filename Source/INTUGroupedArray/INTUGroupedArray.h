@@ -25,8 +25,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INTUDefines.h"
 
-NS_ASSUME_NONNULL_BEGIN
+__INTU_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - INTUGroupedArraySectionEnumerator
@@ -35,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol INTUGroupedArraySectionEnumerator <NSObject>
 
 /** Returns the next section from the grouped array being enumerated. Returns nil when all sections have been enumerated. */
-- (nullable id)nextSection;
+- (__INTU_NULLABLE id)nextSection;
 
 /** Returns an array of all sections from the grouped array that have not yet been enumerated. */
 - (NSArray *)allSections;
@@ -60,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  enabled when attempting to access sections or objects that don't exist in the grouped array. However, if
  assertions are disabled, INTUGroupedArray will fail gracefully.
  */
-@interface INTUGroupedArray<SectionType, ObjectType> : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
+@interface __INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
 {
 @protected
     /** A token that is incremented on every mutation. */
@@ -76,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Creates and returns a new empty grouped array. */
 + (instancetype)groupedArray;
 /** Creates and returns a new grouped array with a single section ([NSObject new]) containing the objects in the array. */
-+ (instancetype)groupedArrayWithArray:(nullable NSArray *)array;
++ (instancetype)groupedArrayWithArray:(__INTU_NULLABLE NSArray *)array;
 
 /** Creates and returns a grouped array from the literal syntax.
     Syntax: @[section1, @[object1A, object1B, ...], section2, @[object2A, object2B, ...], ...] */
@@ -94,57 +95,57 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Access Methods
 
 /** Returns the section at the index. */
-- (SectionType)sectionAtIndex:(NSUInteger)index;
+- (__INTU_GENERICS_TYPE(SectionType))sectionAtIndex:(NSUInteger)index;
 /** Returns the number of sections. */
 - (NSUInteger)countAllSections;
 /** Returns an array of all the sections. */
-- (NSArray<SectionType> *)allSections;
+- (__INTU_GENERICS(NSArray, SectionType) *)allSections;
 /** Returns whether the section exists. */
-- (BOOL)containsSection:(SectionType)section;
+- (BOOL)containsSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the index for the section. */
-- (NSUInteger)indexOfSection:(SectionType)section;
+- (NSUInteger)indexOfSection:(__INTU_GENERICS_TYPE(SectionType))section;
 
 /** Returns the object at the index in the section. */
-- (ObjectType)objectAtIndex:(NSUInteger)index inSection:(SectionType)section;
+- (__INTU_GENERICS_TYPE(ObjectType))objectAtIndex:(NSUInteger)index inSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the object at the index path. */
-- (ObjectType)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (__INTU_GENERICS_TYPE(ObjectType))objectAtIndexPath:(NSIndexPath *)indexPath;
 /** Returns the first object in the first section. */
-- (nullable ObjectType)firstObject;
+- (__INTU_NULLABLE __INTU_GENERICS_TYPE(ObjectType))firstObject;
 /** Returns the last object in the last section. */
-- (nullable ObjectType)lastObject;
+- (__INTU_NULLABLE __INTU_GENERICS_TYPE(ObjectType))lastObject;
 /** Returns whether the object exists in any section. */
-- (BOOL)containsObject:(ObjectType)object;
+- (BOOL)containsObject:(__INTU_GENERICS_TYPE(ObjectType))object;
 /** Returns the index path of the first instance of the object across all sections. */
-- (NSIndexPath *)indexPathOfObject:(ObjectType)object;
+- (NSIndexPath *)indexPathOfObject:(__INTU_GENERICS_TYPE(ObjectType))object;
 /** Returns whether the object exists in the section. */
-- (BOOL)containsObject:(ObjectType)object inSection:(SectionType)section;
+- (BOOL)containsObject:(__INTU_GENERICS_TYPE(ObjectType))object inSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the index of the first instance of the object in the section. */
-- (NSUInteger)indexOfObject:(ObjectType)object inSection:(SectionType)section;
+- (NSUInteger)indexOfObject:(__INTU_GENERICS_TYPE(ObjectType))object inSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the number of objects in the section. */
-- (NSUInteger)countObjectsInSection:(SectionType)section;
+- (NSUInteger)countObjectsInSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the number of objects in the section at the index. */
 - (NSUInteger)countObjectsInSectionAtIndex:(NSUInteger)index;
 /** Returns the objects in the section. */
-- (NSArray<ObjectType> *)objectsInSection:(SectionType)section;
+- (__INTU_GENERICS(NSArray, ObjectType) *)objectsInSection:(__INTU_GENERICS_TYPE(SectionType))section;
 /** Returns the objects in the section at the index. */
-- (NSArray<ObjectType> *)objectsInSectionAtIndex:(NSUInteger)index;
+- (__INTU_GENERICS(NSArray, ObjectType) *)objectsInSectionAtIndex:(NSUInteger)index;
 /** Returns the total number of objects in all sections. */
 - (NSUInteger)countAllObjects;
 /** Returns an array of all objects in all sections. */
-- (NSArray<ObjectType> *)allObjects;
+- (__INTU_GENERICS(NSArray, ObjectType) *)allObjects;
 
 /** Executes the block for each section in the grouped array. */
-- (void)enumerateSectionsUsingBlock:(void (^)(SectionType section, NSUInteger index, BOOL *stop))block;
+- (void)enumerateSectionsUsingBlock:(void (^)(__INTU_GENERICS_TYPE(SectionType) section, NSUInteger index, BOOL *stop))block;
 /** Executes the block for each section in the grouped array with the specified enumeration options. */
-- (void)enumerateSectionsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(SectionType section, NSUInteger index, BOOL *stop))block;
+- (void)enumerateSectionsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(__INTU_GENERICS_TYPE(SectionType) section, NSUInteger index, BOOL *stop))block;
 /** Executes the block for each object in the grouped array. */
-- (void)enumerateObjectsUsingBlock:(void (^)(ObjectType object, NSIndexPath *indexPath, BOOL *stop))block;
+- (void)enumerateObjectsUsingBlock:(void (^)(__INTU_GENERICS_TYPE(ObjectType) object, NSIndexPath *indexPath, BOOL *stop))block;
 /** Executes the block for each object in the grouped array with the specified enumeration options. */
-- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(ObjectType object, NSIndexPath *indexPath, BOOL *stop))block;
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)options usingBlock:(void (^)(__INTU_GENERICS_TYPE(ObjectType) object, NSIndexPath *indexPath, BOOL *stop))block;
 /** Executes the block for each object in the section at the index. */
-- (void)enumerateObjectsInSectionAtIndex:(NSUInteger)sectionIndex usingBlock:(void (^)(ObjectType object, NSIndexPath *indexPath, BOOL *stop))block;
+- (void)enumerateObjectsInSectionAtIndex:(NSUInteger)sectionIndex usingBlock:(void (^)(__INTU_GENERICS_TYPE(ObjectType) object, NSIndexPath *indexPath, BOOL *stop))block;
 /** Executes the block for each object in the section at the index with the specified enumeration options. */
-- (void)enumerateObjectsInSectionAtIndex:(NSUInteger)sectionIndex withOptions:(NSEnumerationOptions)options usingBlock:(void (^)(ObjectType object, NSIndexPath *indexPath, BOOL *stop))block;
+- (void)enumerateObjectsInSectionAtIndex:(NSUInteger)sectionIndex withOptions:(NSEnumerationOptions)options usingBlock:(void (^)(__INTU_GENERICS_TYPE(ObjectType) object, NSIndexPath *indexPath, BOOL *stop))block;
 
 /** Returns an enumerator that will access each section in the grouped array, starting with the first section. */
 - (NSEnumerator<INTUGroupedArraySectionEnumerator> *)sectionEnumerator;
@@ -156,19 +157,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSEnumerator *)reverseObjectEnumerator;
 
 /** Returns the index of the first section in the grouped array that passes the test. */
-- (NSUInteger)indexOfSectionPassingTest:(BOOL (^)(SectionType section, NSUInteger index, BOOL *stop))block;
+- (NSUInteger)indexOfSectionPassingTest:(BOOL (^)(__INTU_GENERICS_TYPE(SectionType) section, NSUInteger index, BOOL *stop))block;
 /** Returns the index path of the first object in the grouped array that passes the test. */
-- (NSIndexPath *)indexPathOfObjectPassingTest:(BOOL (^)(ObjectType object, NSIndexPath *indexPath, BOOL *stop))block;
+- (NSIndexPath *)indexPathOfObjectPassingTest:(BOOL (^)(__INTU_GENERICS_TYPE(ObjectType) object, NSIndexPath *indexPath, BOOL *stop))block;
 
 /** Returns whether the contents of this grouped array are equal to the contents of another grouped array. */
-- (BOOL)isEqualToGroupedArray:(nullable INTUGroupedArray *)otherGroupedArray;
+- (BOOL)isEqualToGroupedArray:(__INTU_NULLABLE INTUGroupedArray *)otherGroupedArray;
 
 /** Returns a new grouped array filtered by evaluating the section & object predicates against all sections & objects and removing those that do not match. Empty sections will be removed. */
-- (INTUGroupedArray<SectionType, ObjectType> *)filteredGroupedArrayUsingSectionPredicate:(nullable NSPredicate *)sectionPredicate objectPredicate:(nullable NSPredicate *)objectPredicate;
+- (__INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) *)filteredGroupedArrayUsingSectionPredicate:(__INTU_NULLABLE NSPredicate *)sectionPredicate objectPredicate:(__INTU_NULLABLE NSPredicate *)objectPredicate;
 
 /** Returns a new grouped array with the sections sorted using the section comparator, and the objects in each section sorted using the object comparator. */
-- (INTUGroupedArray<SectionType, ObjectType> *)sortedGroupedArrayUsingSectionComparator:(nullable NSComparator)sectionCmptr objectComparator:(nullable NSComparator)objectCmptr;
+- (__INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) *)sortedGroupedArrayUsingSectionComparator:(__INTU_NULLABLE NSComparator)sectionCmptr objectComparator:(__INTU_NULLABLE NSComparator)objectCmptr;
 
 @end
 
-NS_ASSUME_NONNULL_END
+__INTU_ASSUME_NONNULL_END

@@ -32,7 +32,11 @@
 
 @interface ViewController ()
 
+#if __has_feature(objc_generics)
+@property (nonatomic, strong) INTUMutableGroupedArray<INTUFruitCategory *, INTUFruit *> *groupedArray;
+#else
 @property (nonatomic, strong) INTUMutableGroupedArray *groupedArray;
+#endif
 
 @end
 
@@ -74,7 +78,11 @@
 
 - (void)resetGroupedArray
 {
+#if __has_feature(objc_generics)
+    INTUMutableGroupedArray<INTUFruitCategory *, INTUFruit *> *groupedArray = [INTUMutableGroupedArray new];
+#else
     INTUMutableGroupedArray *groupedArray = [INTUMutableGroupedArray new];
+#endif
     
     INTUFruitCategory *smallRoundCategory = [INTUFruitCategory fruitCategoryWithDisplayName:@"Small Round"];
     [groupedArray addObject:[INTUFruit fruitWithName:@"Apple" color:@"Red"] toSection:smallRoundCategory];

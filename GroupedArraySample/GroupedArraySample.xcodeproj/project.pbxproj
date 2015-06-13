@@ -51,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A798B1A91B2BC875008B7D63 /* INTUDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTUDefines.h; sourceTree = "<group>"; };
 		B14F257D1A05EB6E0067C976 /* INTUGroupedArrayInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUGroupedArrayInternal.h; sourceTree = "<group>"; };
 		B14F257E1A05EB6E0067C976 /* INTUGroupedArraySectionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUGroupedArraySectionContainer.h; sourceTree = "<group>"; };
 		B14F257F1A05EB6E0067C976 /* INTUGroupedArraySectionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTUGroupedArraySectionContainer.m; sourceTree = "<group>"; };
@@ -138,11 +139,12 @@
 		B14F257C1A05EB6E0067C976 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				A798B1A91B2BC875008B7D63 /* INTUDefines.h */,
 				B14F257D1A05EB6E0067C976 /* INTUGroupedArrayInternal.h */,
+				B14F25811A05EB6E0067C976 /* INTUMutableGroupedArrayInternal.h */,
 				B14F257E1A05EB6E0067C976 /* INTUGroupedArraySectionContainer.h */,
 				B14F257F1A05EB6E0067C976 /* INTUGroupedArraySectionContainer.m */,
 				B14F25801A05EB6E0067C976 /* INTUIndexPair.h */,
-				B14F25811A05EB6E0067C976 /* INTUMutableGroupedArrayInternal.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
