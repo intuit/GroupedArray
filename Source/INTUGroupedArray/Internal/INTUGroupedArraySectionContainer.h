@@ -2,7 +2,7 @@
 //  INTUGroupedArraySectionContainer.h
 //  https://github.com/intuit/GroupedArray
 //
-//  Copyright (c) 2014 Intuit Inc.
+//  Copyright (c) 2014-2015 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -26,19 +26,21 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A helper object used to encapsulate the section and its associated array of objects.
  */
-@interface INTUGroupedArraySectionContainer : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface INTUGroupedArraySectionContainer<SectionType, ObjectType> : NSObject <NSCopying, NSMutableCopying, NSCoding>
 
-@property (nonatomic, strong) id section;
-@property (nonatomic, strong) NSArray *objects;
+@property (nonatomic, strong) SectionType section;
+@property (nonatomic, strong) NSArray<ObjectType> *objects;
 
 /** Returns a new section container with the given section. */
-+ (instancetype)sectionContainerWithSection:(id)section;
++ (instancetype)sectionContainerWithSection:(SectionType)section;
 
 /** Returns a new section container that is a deep copy of the section container, copying the section and objects. */
-- (instancetype)initWithSectionContainer:(INTUGroupedArraySectionContainer *)sectionContainer copyItems:(BOOL)copyItems;
+- (instancetype)initWithSectionContainer:(INTUGroupedArraySectionContainer<SectionType, ObjectType> *)sectionContainer copyItems:(BOOL)copyItems;
 
 @end
 
@@ -46,9 +48,11 @@
 /**
  A helper object used to encapsulate the section and its associated mutable array of objects.
  */
-@interface INTUMutableGroupedArraySectionContainer : INTUGroupedArraySectionContainer
+@interface INTUMutableGroupedArraySectionContainer<SectionType, ObjectType> : INTUGroupedArraySectionContainer
 
 /** Exposes the superclass objects instance variable typecast to NSMutableArray. */
-@property (nonatomic) NSMutableArray *mutableObjects;
+@property (nonatomic) NSMutableArray<ObjectType> *mutableObjects;
+
+NS_ASSUME_NONNULL_END
 
 @end

@@ -2,7 +2,7 @@
 //  INTUGroupedArrayInternal.h
 //  https://github.com/intuit/GroupedArray
 //
-//  Copyright (c) 2014 Intuit Inc.
+//  Copyright (c) 2014-2015 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -30,14 +30,16 @@
 #import "INTUGroupedArray.h"
 #import "INTUIndexPair.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A category on INTUGroupedArray that exposes some private internal properties and methods for
  subclasses to access.
  */
-@interface INTUGroupedArray (Internal)
+@interface INTUGroupedArray<SectionType, ObjectType> (Internal)
 
 // An array of INTUGroupedArraySectionContainer objects.
-@property (nonatomic, strong) NSArray *sectionContainers;
+@property (nonatomic, strong) NSArray<INTUGroupedArraySectionContainer<SectionType, ObjectType> *> *sectionContainers;
 
 /**
  Returns the memory address of the _mutations instance variable.
@@ -54,8 +56,10 @@
  @param indexPair The index pair of the object.
  @return The object at the index pair, or nil if the index pair is out of bounds.
  */
-- (id)_objectAtIndexPair:(INTUIndexPair)indexPair;
+- (ObjectType)_objectAtIndexPair:(INTUIndexPair)indexPair;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* INTUGroupedArrayInternal_h */

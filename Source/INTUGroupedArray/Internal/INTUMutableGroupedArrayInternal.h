@@ -2,7 +2,7 @@
 //  INTUMutableGroupedArrayInternal.h
 //  https://github.com/intuit/GroupedArray
 //
-//  Copyright (c) 2014 Intuit Inc.
+//  Copyright (c) 2014-2015 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -29,17 +29,21 @@
 
 #import "INTUMutableGroupedArray.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A category on INTUMutableGroupedArray that exposes some private internal properties and methods for
  subclasses to access.
  */
-@interface INTUMutableGroupedArray (Internal)
+@interface INTUMutableGroupedArray<SectionType, ObjectType> (Internal)
 
 // A mutable array of INTUMutableGroupedArraySectionContainer objects.
-@property (nonatomic) NSMutableArray *mutableSectionContainers;
+@property (nonatomic) NSMutableArray<INTUMutableGroupedArraySectionContainer<SectionType, ObjectType> *> *mutableSectionContainers;
 
-- (NSMutableArray *)_objectsArrayForSection:(id)section withSectionIndexHint:(NSUInteger)sectionIndexHint;
+- (NSMutableArray<ObjectType> *)_objectsArrayForSection:(SectionType)section withSectionIndexHint:(NSUInteger)sectionIndexHint;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* INTUMutableGroupedArrayInternal_h */

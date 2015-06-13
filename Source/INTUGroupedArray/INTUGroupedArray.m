@@ -379,10 +379,10 @@
 
 #pragma mark - INTUGroupedArray
 
-@interface INTUGroupedArray ()
+@interface INTUGroupedArray<SectionType, ObjectType> ()
 
 // An array of INTUGroupedArraySectionContainer objects, which serves as the backing store for the grouped array.
-@property (nonatomic, strong) NSArray *sectionContainers;
+@property (nonatomic, strong) NSArray<INTUGroupedArraySectionContainer<SectionType, ObjectType> *> *sectionContainers;
 
 @end
 
