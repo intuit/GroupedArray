@@ -28,6 +28,10 @@
 #import "INTUGroupedArrayImports.h"
 #import <libkern/OSAtomic.h>
 
+// We still want to test APIs annotated as non-null for the proper behavior, so disable warnings for nullability annotations.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 @interface INTUGroupedArrayTests : XCTestCase
 
 @property (nonatomic, strong) INTUGroupedArray *groupedArray;
@@ -2027,3 +2031,5 @@ static const NSString *sectionZ = @"Zulu";
 }
 
 @end
+
+#pragma clang diagnostic pop
