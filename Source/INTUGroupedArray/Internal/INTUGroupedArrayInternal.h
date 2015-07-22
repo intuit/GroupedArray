@@ -29,6 +29,7 @@
 
 #import "INTUGroupedArray.h"
 #import "INTUIndexPair.h"
+#import "INTUGroupedArraySectionContainer.h"
 
 __INTU_ASSUME_NONNULL_BEGIN
 
