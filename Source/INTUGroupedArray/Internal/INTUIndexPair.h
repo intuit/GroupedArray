@@ -28,7 +28,7 @@
 #define INTUIndexPair_h
 
 #import <Foundation/Foundation.h>
-#import "INTUDefines.h"
+#import "INTUGroupedArrayDefines.h"
 
 __INTU_ASSUME_NONNULL_BEGIN
 

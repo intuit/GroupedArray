@@ -30,7 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A76593101B2C02AD00B7C19E /* INTUDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTUDefines.h; sourceTree = "<group>"; };
 		B14F256B1A05E9F90067C976 /* INTUGroupedArrayInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUGroupedArrayInternal.h; sourceTree = "<group>"; };
 		B14F256C1A05E9F90067C976 /* INTUGroupedArraySectionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTUGroupedArraySectionContainer.h; sourceTree = "<group>"; };
 		B14F256D1A05E9F90067C976 /* INTUGroupedArraySectionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTUGroupedArraySectionContainer.m; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		B1A683A21A02DB8300C73235 /* SwiftGroupedArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGroupedArrayTests.swift; sourceTree = "<group>"; };
 		B1A683AC1A02DBA900C73235 /* SwiftGroupedArray-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGroupedArray-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		B1A683AD1A02DBA900C73235 /* SwiftGroupedArrayTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGroupedArrayTests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		B1D1242D1B7A720E000282D2 /* INTUGroupedArrayDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTUGroupedArrayDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		B14F256A1A05E9F90067C976 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				A76593101B2C02AD00B7C19E /* INTUDefines.h */,
+				B1D1242D1B7A720E000282D2 /* INTUGroupedArrayDefines.h */,
 				B14F256B1A05E9F90067C976 /* INTUGroupedArrayInternal.h */,
 				B14F256F1A05E9F90067C976 /* INTUMutableGroupedArrayInternal.h */,
 				B14F256C1A05E9F90067C976 /* INTUGroupedArraySectionContainer.h */,

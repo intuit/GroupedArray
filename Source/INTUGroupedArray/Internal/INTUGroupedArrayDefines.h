@@ -1,5 +1,5 @@
 //
-//  INTUDefines.h
+//  INTUGroupedArrayDefines.h
 //  https://github.com/intuit/GroupedArray
 //
 //  Copyright (c) 2015 Intuit Inc.
@@ -24,8 +24,8 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#ifndef INTUDefines_h
-#define INTUDefines_h
+#ifndef INTUGroupedArrayDefines_h
+#define INTUGroupedArrayDefines_h
 
 #if __has_feature(nullability)
 #   define __INTU_ASSUME_NONNULL_BEGIN      NS_ASSUME_NONNULL_BEGIN
@@ -45,4 +45,4 @@
 #   define __INTU_GENERICS_TYPE(type)       id
 #endif
 
-#endif /* INTUDefines_h */
+#endif /* INTUGroupedArrayDefines_h */
