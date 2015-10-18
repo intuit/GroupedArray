@@ -52,7 +52,7 @@ __INTU_ASSUME_NONNULL_BEGIN
 @interface __INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) : INTUGroupedArraySectionContainer
 
 /** Exposes the superclass objects instance variable typecast to NSMutableArray. */
-@property (nonatomic) __INTU_GENERICS(NSMutableArray, ObjectType) *mutableObjects;
+@property (nonatomic, strong) __INTU_GENERICS(NSMutableArray, ObjectType) *mutableObjects;
 
 __INTU_ASSUME_NONNULL_END
 
