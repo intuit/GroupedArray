@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
   s.source_files          = 'Source/INTUGroupedArray/**/*.{h,m}'
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target    = '9.0'
   s.requires_arc          = true
   s.summary               = "An Objective-C and Swift collection for iOS and OS X that stores objects grouped into sections."
   s.description           = <<-DESC
