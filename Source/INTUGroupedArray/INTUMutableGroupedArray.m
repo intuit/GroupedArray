@@ -28,11 +28,11 @@
 #import "INTUGroupedArraySectionContainer.h"
 #import "INTUGroupedArrayInternal.h"
 
-@interface __INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) ()
+@interface GA__INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) ()
 
 // A mutable array of INTUMutableGroupedArraySectionContainer objects, which serves as the backing store for the grouped array.
 // Note that this property does not have its own backing instance variable; it uses the superclass sectionContainers property for storage.
-@property (nonatomic) __INTU_GENERICS(NSMutableArray, __INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) *) *mutableSectionContainers;
+@property (nonatomic) GA__INTU_GENERICS(NSMutableArray, GA__INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) *) *mutableSectionContainers;
 
 @end
 

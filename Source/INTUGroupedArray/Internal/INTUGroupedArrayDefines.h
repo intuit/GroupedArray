@@ -28,21 +28,21 @@
 #define INTUGroupedArrayDefines_h
 
 #if __has_feature(nullability)
-#   define __INTU_ASSUME_NONNULL_BEGIN      NS_ASSUME_NONNULL_BEGIN
-#   define __INTU_ASSUME_NONNULL_END        NS_ASSUME_NONNULL_END
-#   define __INTU_NULLABLE                  nullable
+#   define GA__INTU_ASSUME_NONNULL_BEGIN      NS_ASSUME_NONNULL_BEGIN
+#   define GA__INTU_ASSUME_NONNULL_END        NS_ASSUME_NONNULL_END
+#   define GA__INTU_NULLABLE                  nullable
 #else
-#   define __INTU_ASSUME_NONNULL_BEGIN
-#   define __INTU_ASSUME_NONNULL_END
-#   define __INTU_NULLABLE
+#   define GA__INTU_ASSUME_NONNULL_BEGIN
+#   define GA__INTU_ASSUME_NONNULL_END
+#   define GA__INTU_NULLABLE
 #endif
 
 #if __has_feature(objc_generics)
-#   define __INTU_GENERICS(type, ...)       type<__VA_ARGS__>
-#   define __INTU_GENERICS_TYPE(type)       type
+#   define GA__INTU_GENERICS(type, ...)       type<__VA_ARGS__>
+#   define GA__INTU_GENERICS_TYPE(type)       type
 #else
-#   define __INTU_GENERICS(type, ...)       type
-#   define __INTU_GENERICS_TYPE(type)       id
+#   define GA__INTU_GENERICS(type, ...)       type
+#   define GA__INTU_GENERICS_TYPE(type)       id
 #endif
 
 #endif /* INTUGroupedArrayDefines_h */

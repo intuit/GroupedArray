@@ -29,21 +29,21 @@
 
 #import "INTUMutableGroupedArray.h"
 
-__INTU_ASSUME_NONNULL_BEGIN
+GA__INTU_ASSUME_NONNULL_BEGIN
 
 /**
  A category on INTUMutableGroupedArray that exposes some private internal properties and methods for
  subclasses to access.
  */
-@interface __INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) (Internal)
+@interface GA__INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) (Internal)
 
 // A mutable array of INTUMutableGroupedArraySectionContainer objects.
-@property (nonatomic) __INTU_GENERICS(NSMutableArray, __INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) *) *mutableSectionContainers;
+@property (nonatomic) GA__INTU_GENERICS(NSMutableArray, GA__INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) *) *mutableSectionContainers;
 
-- (__INTU_GENERICS(NSMutableArray, ObjectType) *)_objectsArrayForSection:(__INTU_GENERICS_TYPE(SectionType))section withSectionIndexHint:(NSUInteger)sectionIndexHint;
+- (GA__INTU_GENERICS(NSMutableArray, ObjectType) *)_objectsArrayForSection:(GA__INTU_GENERICS_TYPE(SectionType))section withSectionIndexHint:(NSUInteger)sectionIndexHint;
 
 @end
 
-__INTU_ASSUME_NONNULL_END
+GA__INTU_ASSUME_NONNULL_END
 
 #endif /* INTUMutableGroupedArrayInternal_h */
