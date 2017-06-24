@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version               = "1.1.5"
   s.homepage              = "https://github.com/intuit/GroupedArray"
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
-  s.author                = { "Tyler Fox" => "tyler_fox@intuit.com" }
+  s.author                = { "Lucien Dupont" => "lucien_dupont@intuit.com" }
   s.source                = { :git => "https://github.com/intuit/GroupedArray.git", :tag => "v1.1.5" }
   s.source_files          = 'Source/INTUGroupedArray/**/*.{h,m}'
   s.ios.deployment_target = '6.0'
