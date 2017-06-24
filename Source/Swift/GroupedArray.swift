@@ -249,18 +249,18 @@ public class GroupedArray<S: AnyObject, O: AnyObject>: SequenceType, Equatable, 
         let groupedArray = self
         var sectionIndex = 0
         var objectIndex = 0
-        return anyGenerator {
+        return AnyGenerator {
             let sectionCount = groupedArray.countAllSections()
             if sectionIndex < sectionCount {
                 let section = groupedArray.sectionAtIndex(sectionIndex)
                 let objectCount = groupedArray.countObjectsInSectionAtIndex(sectionIndex)
                 if objectIndex < objectCount {
                     let object = groupedArray.objectAtIndexPath(INTUGroupedArray.indexPathForRow(UInt(objectIndex), inSection: UInt(sectionIndex)))
-                    objectIndex++
+                    objectIndex += 1
                     return (section, object)
                 }
                 objectIndex = 0
-                sectionIndex++
+                sectionIndex += 1
             }
             return nil
         }
