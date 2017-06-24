@@ -379,10 +379,10 @@
 
 #pragma mark - INTUGroupedArray
 
-@interface __INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) ()
+@interface GA__INTU_GENERICS(INTUGroupedArray, SectionType, ObjectType) ()
 
 // An array of INTUGroupedArraySectionContainer objects, which serves as the backing store for the grouped array.
-@property (nonatomic, strong) __INTU_GENERICS(NSArray, __INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) *) *sectionContainers;
+@property (nonatomic, strong) GA__INTU_GENERICS(NSArray, GA__INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) *) *sectionContainers;
 
 @end
 

@@ -26,7 +26,7 @@
 
 #import "INTUGroupedArray.h"
 
-__INTU_ASSUME_NONNULL_BEGIN
+GA__INTU_ASSUME_NONNULL_BEGIN
 
 
 /**
@@ -36,32 +36,32 @@ __INTU_ASSUME_NONNULL_BEGIN
  
  Calling -[copy] will return an immutable instance of INTUGroupedArray.
  */
-@interface __INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) : INTUGroupedArray
+@interface GA__INTU_GENERICS(INTUMutableGroupedArray, SectionType, ObjectType) : INTUGroupedArray
 
 #pragma mark Adding
 
 /** Adds an object to the section. If the section does not exist, it will be created. */
-- (void)addObject:(__INTU_GENERICS_TYPE(ObjectType))object toSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)addObject:(GA__INTU_GENERICS_TYPE(ObjectType))object toSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Adds an object to the section, using the section index hint to attempt to quickly locate the section. If the section does not exist, it will be created. */
-- (void)addObject:(__INTU_GENERICS_TYPE(ObjectType))object toSection:(__INTU_GENERICS_TYPE(SectionType))section withSectionIndexHint:(NSUInteger)sectionIndexHint;
+- (void)addObject:(GA__INTU_GENERICS_TYPE(ObjectType))object toSection:(GA__INTU_GENERICS_TYPE(SectionType))section withSectionIndexHint:(NSUInteger)sectionIndexHint;
 /** Adds an object to an existing section at the index. */
-- (void)addObject:(__INTU_GENERICS_TYPE(ObjectType))object toSectionAtIndex:(NSUInteger)index;
+- (void)addObject:(GA__INTU_GENERICS_TYPE(ObjectType))object toSectionAtIndex:(NSUInteger)index;
 /** Adds the objects in the array to the section. If the section does not exist, it will be created. */
-- (void)addObjectsFromArray:(__INTU_NULLABLE __INTU_GENERICS(NSArray, ObjectType) *)array toSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)addObjectsFromArray:(GA__INTU_NULLABLE GA__INTU_GENERICS(NSArray, ObjectType) *)array toSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 
 #pragma mark Inserting
 
 /** Inserts the object at the index in the section. If the section does not exist, it will be created. */
-- (void)insertObject:(__INTU_GENERICS_TYPE(ObjectType))object atIndex:(NSUInteger)index inSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)insertObject:(GA__INTU_GENERICS_TYPE(ObjectType))object atIndex:(NSUInteger)index inSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Inserts the object at the index path. The index path must correspond to an existing section. */
-- (void)insertObject:(__INTU_GENERICS_TYPE(ObjectType))object atIndexPath:(NSIndexPath *)indexPath;
+- (void)insertObject:(GA__INTU_GENERICS_TYPE(ObjectType))object atIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark Replacing
 
 /** Replaces the section at the index with another section. */
-- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Replaces the object at the index path with another object. */
-- (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(__INTU_GENERICS_TYPE(ObjectType))object;
+- (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(GA__INTU_GENERICS_TYPE(ObjectType))object;
 
 #pragma mark Moving
 
@@ -82,28 +82,28 @@ __INTU_ASSUME_NONNULL_BEGIN
 /** Removes all objects and sections. */
 - (void)removeAllObjects;
 /** Removes the section and all objects in it. */
-- (void)removeSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)removeSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Removes the section at the index and all objects in it. */
 - (void)removeSectionAtIndex:(NSUInteger)index;
 /** Removes all occurrences of the object across all sections. Empty sections will be removed. */
-- (void)removeObject:(__INTU_GENERICS_TYPE(ObjectType))object;
+- (void)removeObject:(GA__INTU_GENERICS_TYPE(ObjectType))object;
 /** Removes all occurrences of the object from the section. Empty sections will be removed. */
-- (void)removeObject:(__INTU_GENERICS_TYPE(ObjectType))object fromSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)removeObject:(GA__INTU_GENERICS_TYPE(ObjectType))object fromSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Removes the object at the index from the section. Empty sections will be removed. */
-- (void)removeObjectAtIndex:(NSUInteger)index fromSection:(__INTU_GENERICS_TYPE(SectionType))section;
+- (void)removeObjectAtIndex:(NSUInteger)index fromSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 /** Removes the object at the index path. Empty sections will be removed. */
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark Filtering
 
 /** Evaluates the section & object predicates against all sections & objects and removes those that do not match. Empty sections will be removed. */
-- (void)filterUsingSectionPredicate:(__INTU_NULLABLE NSPredicate *)sectionPredicate objectPredicate:(__INTU_NULLABLE NSPredicate *)objectPredicate;
+- (void)filterUsingSectionPredicate:(GA__INTU_NULLABLE NSPredicate *)sectionPredicate objectPredicate:(GA__INTU_NULLABLE NSPredicate *)objectPredicate;
 
 #pragma mark Sorting
 
 /** Sorts the sections using the section comparator, and the objects in each section using the object comparator. */
-- (void)sortUsingSectionComparator:(__INTU_NULLABLE NSComparator)sectionCmptr objectComparator:(__INTU_NULLABLE NSComparator)objectCmptr;
+- (void)sortUsingSectionComparator:(GA__INTU_NULLABLE NSComparator)sectionCmptr objectComparator:(GA__INTU_NULLABLE NSComparator)objectCmptr;
 
 @end
 
-__INTU_ASSUME_NONNULL_END
+GA__INTU_ASSUME_NONNULL_END

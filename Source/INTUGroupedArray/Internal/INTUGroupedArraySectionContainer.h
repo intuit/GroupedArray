@@ -27,21 +27,21 @@
 #import <Foundation/Foundation.h>
 #import "INTUGroupedArrayDefines.h"
 
-__INTU_ASSUME_NONNULL_BEGIN
+GA__INTU_ASSUME_NONNULL_BEGIN
 
 /**
  A helper object used to encapsulate the section and its associated array of objects.
  */
-@interface __INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface GA__INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) : NSObject <NSCopying, NSMutableCopying, NSCoding>
 
-@property (nonatomic, strong) __INTU_GENERICS_TYPE(SectionType) section;
-@property (nonatomic, strong) __INTU_GENERICS(NSArray, ObjectType) *objects;
+@property (nonatomic, strong) GA__INTU_GENERICS_TYPE(SectionType) section;
+@property (nonatomic, strong) GA__INTU_GENERICS(NSArray, ObjectType) *objects;
 
 /** Returns a new section container with the given section. */
-+ (instancetype)sectionContainerWithSection:(__INTU_GENERICS_TYPE(SectionType))section;
++ (instancetype)sectionContainerWithSection:(GA__INTU_GENERICS_TYPE(SectionType))section;
 
 /** Returns a new section container that is a deep copy of the section container, copying the section and objects. */
-- (instancetype)initWithSectionContainer:(__INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) *)sectionContainer copyItems:(BOOL)copyItems;
+- (instancetype)initWithSectionContainer:(GA__INTU_GENERICS(INTUGroupedArraySectionContainer, SectionType, ObjectType) *)sectionContainer copyItems:(BOOL)copyItems;
 
 @end
 
@@ -49,11 +49,11 @@ __INTU_ASSUME_NONNULL_BEGIN
 /**
  A helper object used to encapsulate the section and its associated mutable array of objects.
  */
-@interface __INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) : INTUGroupedArraySectionContainer
+@interface GA__INTU_GENERICS(INTUMutableGroupedArraySectionContainer, SectionType, ObjectType) : INTUGroupedArraySectionContainer
 
 /** Exposes the superclass objects instance variable typecast to NSMutableArray. */
-@property (nonatomic, strong) __INTU_GENERICS(NSMutableArray, ObjectType) *mutableObjects;
+@property (nonatomic, strong) GA__INTU_GENERICS(NSMutableArray, ObjectType) *mutableObjects;
 
-__INTU_ASSUME_NONNULL_END
+GA__INTU_ASSUME_NONNULL_END
 
 @end
