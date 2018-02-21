@@ -9,6 +9,6 @@ before_install:
   - gem install slather --no-ri --no-rdoc
   
   
-script: set -o pipefail && xcodebuild test -workspace GroupedArraySample/GroupedArraySample.xcodeproj -scheme GroupedArraySample-iOS -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.0'
+script: set -o pipefail && xcodebuild test -project GroupedArraySample/GroupedArraySample.xcodeproj -scheme GroupedArraySample-iOS -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.0'
 
 after_success: slather
