@@ -1,6 +1,9 @@
 sudo: false
 language: objective-c
+os: osx
 xcode_project: GroupedArraySample/GroupedArraySample.xcodeproj
+xcode_sdk: iphonesimulator11.0
+osx_image: xcode9
 matrix:
   include:
     - xcode_sdk: iphonesimulator
@@ -10,5 +13,5 @@ matrix:
 
 before_install:
   - gem install slather --no-ri --no-rdoc
-
+  
 after_success: slather
