@@ -1124,8 +1124,8 @@
         return;
     }
     
-    BOOL concurrent = (options & NSEnumerationConcurrent);
-    BOOL reverse = (options & NSEnumerationReverse);
+    BOOL concurrent = (options & NSEnumerationConcurrent) == 0 ? NO : YES;
+    BOOL reverse = (options & NSEnumerationReverse) == 0 ? NO : YES;
     
     NSOperationQueue *concurrentQueue = nil;
     if (concurrent) {
@@ -1187,8 +1187,8 @@
         return;
     }
     
-    BOOL concurrent = (options & NSEnumerationConcurrent);
-    BOOL reverse = (options & NSEnumerationReverse);
+    BOOL concurrent = (options & NSEnumerationConcurrent) == 0 ? NO : YES;
+    BOOL reverse = (options & NSEnumerationReverse) == 0 ? NO : YES;
     
     NSOperationQueue *concurrentQueue = nil;
     if (concurrent) {
@@ -1255,8 +1255,8 @@
         return;
     }
     
-    BOOL concurrent = (options & NSEnumerationConcurrent);
-    BOOL reverse = (options & NSEnumerationReverse);
+    BOOL concurrent = (options & NSEnumerationConcurrent) == 0 ? NO : YES;
+    BOOL reverse = (options & NSEnumerationReverse) == 0 ? NO : YES;
     
     NSOperationQueue *concurrentQueue = nil;
     if (concurrent) {
